@@ -41,25 +41,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Brewtopia</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-custom shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Brewtopia</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
                 </ul>
-                <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Login
+                </button>
             </div>
         </div>
     </nav>
-
-    <header class="hero bg-image text-white d-flex align-items-center justify-content-center" style="background-image: url('https://source.unsplash.com/1600x600/?coffee'); height: 60vh;">
+    <header class="hero bg-image text-white d-flex align-items-center justify-content-center" style="background-image: url('images/background.jpeg'); height: 70vh; margin-top: 0;">
         <div class="text-center p-5 bg-black bg-opacity-50 rounded">
             <h1>Welcome to Brewtopia</h1>
             <p>Your perfect coffee experience starts here.</p>
@@ -71,19 +78,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2 class="mb-4">Our Coffee Selection</h2>
         <div class="row">
             <!-- Placeholder cards -->
-            <?php for ($i = 1; $i <= 6; $i++) : ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://source.unsplash.com/400x300/?coffee,<?= $i ?>" class="card-img-top" alt="Coffee <?= $i ?>">
-                        <div class="card-body">
-                            <h5 class="card-title">Coffee Item <?= $i ?></h5>
-                            <p class="card-text">Delicious coffee with unique flavors.</p>
-                            <p class="card-text fw-bold">$<?= (3 + $i) ?>.00</p>
-                            <a href="#" class="btn btn-primary disabled">Order Now</a>
+            <?php
+            $coffeeItems = [
+                [
+                    "name" => "Espresso",
+                    "desc" => "A strong and bold coffee shot.",
+                    "price" => 2.50,
+                    "img" => "images/espresso.jpg"
+                ],
+                [
+                    "name" => "Cappuccino",
+                    "desc" => "Espresso with steamed milk and foam.",
+                    "price" => 3.00,
+                    "img" => "images/Cappuccino.jpg"
+                ],
+                [
+                    "name" => "Latte",
+                    "desc" => "Creamy blend of espresso and milk.",
+                    "price" => 3.50,
+                    "img" => "images/Latte.jpg"
+                ],
+                [
+                    "name" => "Mocha",
+                    "desc" => "Chocolate flavored coffee delight.",
+                    "price" => 3.75,
+                    "img" => "images/Mocha.jpg"
+                ],
+                [
+                    "name" => "Americano",
+                    "desc" => "Espresso diluted with hot water.",
+                    "price" => 2.75,
+                    "img" => "images/Americano.jpg"
+                ],
+                [
+                    "name" => "Macchiato",
+                    "desc" => "Espresso with a dash of foamed milk.",
+                    "price" => 3.25,
+                    "img" => "images/Macchiato.jpg"
+                ],
+            ];
+            ?>
+
+            <div class="row">
+                <?php foreach ($coffeeItems as $item): ?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="<?= $item['img'] ?>" class="card-img-top" alt="<?= $item['name'] ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $item['name'] ?></h5>
+                                <p class="card-text"><?= $item['desc'] ?></p>
+                                <p class="card-text fw-bold">$<?= number_format($item['price'], 2) ?></p>
+                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Order Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endfor; ?>
+                <?php endforeach; ?>
+            </div>
+
         </div>
     </main>
 

@@ -109,7 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
                 <?php while ($item = $result->fetch_assoc()) : ?>
                     <div class="col-md-4 mb-4">
                         <div class="card shadow-sm h-100 d-flex flex-column">
-                            <img src="https://source.unsplash.com/400x300/?coffee,<?= $item['id'] ?>" class="card-img-top" alt="<?= htmlspecialchars($item['name']) ?>">
+                            <img src="<?= !empty($item['image_url']) ? htmlspecialchars($item['image_url']) : 'images/placeholder.jpg' ?>"
+                                class="card-img-top" alt="<?= htmlspecialchars($item['name']) ?>">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title"><?= htmlspecialchars($item['name']) ?></h5>
                                 <p class="card-text flex-grow-1"><?= htmlspecialchars($item['description']) ?></p>

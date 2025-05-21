@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
         $quantity = $order['quantity'];
 
         // Update inventory
-        $stmt2 = $conn->prepare("UPDATE items SET stock = stock - ? WHERE id = ? AND stock >= ?");
+        $stmt2 = $conn->prepare("UPDATE menu_items SET quantity = quantity - ? WHERE id = ? AND quantity >= ?");
         $stmt2->bind_param("iii", $quantity, $item_id, $quantity);
         $stmt2->execute();
 
@@ -64,7 +64,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-<?php include 'flexible components/navbar.php'; ?>
+    <?php include 'flexible components/navbar.php'; ?>
 
     <main class="container my-4">
         <h2>Orders</h2>
@@ -89,15 +89,17 @@ $result = $conn->query($sql);
                             <td><?= $order['order_time'] ?></td>
                             <td><?= $order['status'] ?></td>
                             <td>
-                                <?php if ($order['status'] === 'Pending'): ?>
-                                    <form method="POST" style="display:inline;">
+                                <?php if ($order['status'] === 'pending'): ?>
+                                    <form method="POST" onsubmit="return confirm('Are you sure you want to confirm this order?')" style="display:inline;">
                                         <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
                                         <button type="submit" name="confirm_order" class="btn btn-sm btn-success">Confirm</button>
                                     </form>
+                                    <a href="edit_order.php?id=<?= $order['id'] ?>" class="btn btn-sm btn-warning ms-1">Edit</a>
                                 <?php else: ?>
                                     <span class="text-muted">Confirmed</span>
                                 <?php endif; ?>
                             </td>
+
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

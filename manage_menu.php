@@ -75,7 +75,7 @@ $result = $conn->query($sql);
 <?php include 'flexible components/navbar.php'; ?>
 
     <main class="container my-4">
-        <h2>Manage Menu Items</h2>
+        <h2>Manage Menu</h2>
 
         <h4>Add New Item</h4>
         <form method="POST" class="row g-3 mb-4">

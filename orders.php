@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
     $order_id = intval($_POST['order_id']);
 
     // Get order details
-    $stmt = $conn->prepare("SELECT item_id, quantity FROM orders WHERE id = ? AND status = 'Pending'");
+    $stmt = $conn->prepare("SELECT item_id, quantity FROM orders WHERE id = ? AND status = 'pending'");
     $stmt->bind_param("i", $order_id);
     $stmt->execute();
     $order = $stmt->get_result()->fetch_assoc();
@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
         $quantity = $order['quantity'];
 
         // Update inventory
-        $stmt2 = $conn->prepare("UPDATE menu_items SET quantity = quantity - ? WHERE id = ? AND quantity >= ?");
+        $stmt2 = $conn->prepare("UPDATE items SET stock = stock - ? WHERE id = ? AND stock >= ?");
         $stmt2->bind_param("iii", $quantity, $item_id, $quantity);
         $stmt2->execute();
 
         if ($stmt2->affected_rows > 0) {
             // Update order status
-            $stmt3 = $conn->prepare("UPDATE orders SET status = 'Confirmed' WHERE id = ?");
+            $stmt3 = $conn->prepare("UPDATE orders SET status = 'confirmed' WHERE id = ?");
             $stmt3->bind_param("i", $order_id);
             $stmt3->execute();
             $stmt3->close();

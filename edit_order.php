@@ -24,7 +24,7 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 $order = $stmt->get_result()->fetch_assoc();
 
-$items = $conn->query("SELECT id, name FROM menu_items");
+$items = $conn->query("SELECT id, name FROM items");
 ?>
 
 <!DOCTYPE html>

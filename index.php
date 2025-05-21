@@ -83,38 +83,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 [
                     "name" => "Espresso",
                     "desc" => "A strong and bold coffee shot.",
-                    "price" => 2.50,
+                    "price" => 3.50,
                     "img" => "images/espresso.jpg"
                 ],
                 [
                     "name" => "Cappuccino",
                     "desc" => "Espresso with steamed milk and foam.",
-                    "price" => 3.00,
-                    "img" => "images/Cappuccino.jpg"
+                    "price" => 4.00,
+                    "img" => "images/cappuccino.jpg"
                 ],
                 [
                     "name" => "Latte",
-                    "desc" => "Creamy blend of espresso and milk.",
-                    "price" => 3.50,
-                    "img" => "images/Latte.jpg"
+                    "desc" => "Coffee with lots of milk.",
+                    "price" => 4.50,
+                    "img" => "images/latte.jpg"
                 ],
                 [
                     "name" => "Mocha",
-                    "desc" => "Chocolate flavored coffee delight.",
-                    "price" => 3.75,
-                    "img" => "images/Mocha.jpg"
+                    "desc" => "Coffee with chocolate.",
+                    "price" => 5.00,
+                    "img" => "images/mocha.jpg"
                 ],
                 [
                     "name" => "Americano",
-                    "desc" => "Espresso diluted with hot water.",
-                    "price" => 2.75,
-                    "img" => "images/Americano.jpg"
+                    "desc" => "Espresso with hot water.",
+                    "price" => 3.00,
+                    "img" => "images/americano.jpg"
                 ],
                 [
                     "name" => "Macchiato",
-                    "desc" => "Espresso with a dash of foamed milk.",
-                    "price" => 3.25,
-                    "img" => "images/Macchiato.jpg"
+                    "desc" => "Espresso with a dash of milk.",
+                    "price" => 3.75,
+                    "img" => "images/macchiato.jpg"
                 ],
             ];
             ?>

@@ -40,25 +40,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="admin.php">Brewtopia Admin</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAdmin">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAdmin">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="admin.php">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="orders.php">Orders</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="inventory.php">Inventory</a></li>
-                    <li class="nav-item"><a class="nav-link" href="manage_menu.php">Manage Menu</a></li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?php include 'flexible components/navbar.php'; ?>
 
     <main class="container my-4">
         <h2>Inventory Management</h2>

@@ -5,7 +5,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$conn = new mysqli('localhost', 'root', '', 'brewtopia');
+$conn = new mysqli('sqlXXX.infinityfree.com', 'root', '', 'brewtopia');
 if ($conn->connect_error) {
     die('DB connection failed: ' . $conn->connect_error);
 }

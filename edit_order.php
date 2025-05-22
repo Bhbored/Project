@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli('localhost', 'root', '', 'brewtopia');
+$conn = new mysqli('sqlXXX.infinityfree.com', 'root', '', 'brewtopia');
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: index.php');

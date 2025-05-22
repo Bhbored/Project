@@ -5,7 +5,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$conn = new mysqli('localhost', 'root', '', 'brewtopia');
+$conn = new mysqli('sqlXXX.infinityfree.com', 'root', '', 'brewtopia');
 if ($conn->connect_error) {
     die('DB connection failed: ' . $conn->connect_error);
 }
@@ -72,7 +72,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-<?php include 'flexible components/navbar.php'; ?>
+    <?php include 'flexible components/navbar.php'; ?>
 
     <main class="container my-4">
         <h2>Manage Menu</h2>

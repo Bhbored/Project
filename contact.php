@@ -3,6 +3,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-gradient-custom shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-custom shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Brewtopia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -37,6 +38,7 @@
         </div>
     </nav>
 </header>
+
 <body>
     <section class="container my-5">
         <div class="row">
@@ -67,8 +69,8 @@
                     <p><strong>Email:</strong> hello@brewtopia.com</p>
                     <hr>
                     <h5 class="mb-2">Find Us Here:</h5>
-                    <div style="width:100%;height:200px;background:#e0c9a6;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;color:#4e342e;font-weight:bold;">
-                        [Google Maps Placeholder]
+                    <div style="width:100%;height:300px;background:#e0c9a6;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;color:#4e342e;font-weight:bold;">
+                        <img src="images/Map.jpeg" alt="Map Placeholder" style="width:100%;height:100%;border-radius:0.5rem; object-fit:cover;">
                     </div>
                 </div>
             </div>
@@ -80,4 +82,5 @@
     <?php include 'flexible components/LoginModel.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
